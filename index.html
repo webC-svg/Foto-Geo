@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2022.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    span.s1 {font: 12.0px 'Apple Color Emoji'}
+    span.s2 {font: 12.0px 'Lucida Grande'}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!doctype html&gt;</p>
+<p class="p1">&lt;html lang="it"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1">&lt;meta charset="utf-8"&gt;</p>
+<p class="p1">&lt;meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"&gt;</p>
+<p class="p1">&lt;meta name="theme-color" content="#0f172a"&gt;</p>
+<p class="p1">&lt;title&gt;Foto Geo&lt;/title&gt;</p>
+<p class="p1">&lt;style&gt;</p>
+<p class="p1">*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f3f4f6;color:#111827}</p>
+<p class="p1">header{background:#0f172a;color:#fff;padding:18px 16px;position:sticky;top:0;z-index:5}</p>
+<p class="p1">h1{margin:0;font-size:24px}header small{opacity:.75}.wrap{max-width:900px;margin:auto;padding:16px}</p>
+<p class="p1">.card{background:#fff;border-radius:18px;padding:16px;margin-bottom:16px;box-shadow:0 2px 12px #00000012}</p>
+<p class="p1">label{font-weight:700;display:block;margin-bottom:7px}input,select,button{font:inherit}</p>
+<p class="p1">input,select{width:100%;padding:13px;border:1px solid #d1d5db;border-radius:12px;background:#fff}</p>
+<p class="p1">button{border:0;border-radius:12px;padding:13px 16px;font-weight:700;cursor:pointer}</p>
+<p class="p1">.primary{background:#0f172a;color:#fff}.secondary{background:#e5e7eb}.danger{background:#fee2e2;color:#991b1b}</p>
+<p class="p1">.row{display:flex;gap:10px;flex-wrap:wrap}.row&gt;*{flex:1;min-width:130px}</p>
+<p class="p1">.big{width:100%;font-size:18px;padding:17px;margin-top:12px}</p>
+<p class="p1">.hidden{display:none!important}.muted{color:#6b7280;font-size:14px}</p>
+<p class="p1">.status{padding:12px;border-radius:12px;background:#f1f5f9;margin-top:12px;font-size:14px}</p>
+<p class="p1">#preview{width:100%;border-radius:14px;background:#111;display:block;max-height:65vh;object-fit:contain}</p>
+<p class="p1">.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}</p>
+<p class="p1">.photo-item{background:#f8fafc;border-radius:14px;overflow:hidden;border:1px solid #e5e7eb}</p>
+<p class="p1">.photo-item img{width:100%;aspect-ratio:1;object-fit:cover;display:block}.photo-item div{padding:9px;font-size:12px}</p>
+<p class="p1">.pill{display:inline-block;background:#e2e8f0;border-radius:999px;padding:5px 9px;font-size:12px;margin:3px}</p>
+<p class="p1">.operator{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid #e5e7eb}</p>
+<p class="p1">.operator:last-child{border-bottom:0}.operator-name{font-weight:700}.count{font-size:13px;color:#64748b}</p>
+<p class="p1">a.btn{display:inline-block;text-decoration:none;color:#fff;background:#0f172a;border-radius:12px;padding:11px 14px;font-weight:700}</p>
+<p class="p1">.notice{font-size:13px;color:#475569;line-height:1.45}</p>
+<p class="p1">&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1">&lt;header&gt;&lt;h1&gt;<span class="s1">📍</span> FOTO GEO&lt;/h1&gt;&lt;small&gt;Fotografie con operatore, data, ora e posizione GPS&lt;/small&gt;&lt;/header&gt;</p>
+<p class="p1">&lt;main class="wrap"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;section class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;label for="operator"&gt;Nome operatore&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input id="operator" placeholder="Es. Mario Rossi" autocomplete="name"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="secondary" id="saveOperator"&gt;Salva operatore&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;button class="primary big" id="takePhoto"&gt;<span class="s1">📷</span> SCATTA FOTO&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;input id="fileInput" type="file" accept="image/*" capture="environment" class="hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="gpsStatus" class="status"&gt;<span class="s1">📍</span> La posizione GPS verrà acquisita quando scatti la foto.&lt;/div&gt;</p>
+<p class="p1">&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;section class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;h2&gt;<span class="s1">👥</span> Operatori&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="operatorsList" class="muted"&gt;Nessun operatore ancora registrato.&lt;/div&gt;</p>
+<p class="p1">&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;section id="gallerySection" class="card hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;h2 id="galleryTitle"&gt;<span class="s1">📁</span> Foto operatore&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="row" style="margin-bottom:12px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="secondary" id="backOperators"&gt;<span class="s2">←</span> Operatori&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="primary" id="exportOperator"&gt;<span class="s1">📥</span> Esporta foto&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="gallery" class="photo-grid"&gt;&lt;/div&gt;</p>
+<p class="p1">&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;section id="resultSection" class="card hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;h2&gt;Anteprima&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;img id="preview" alt="Anteprima foto geolocalizzata"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="photoInfo" class="status"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="row" style="margin-top:12px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="secondary" id="newPhoto"&gt;<span class="s1">📷</span> Nuova foto&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="primary" id="sharePhoto"&gt;<span class="s1">📤</span> Condividi&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a id="downloadPhoto" class="btn" download&gt;<span class="s1">💾</span> Salva&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;section class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="notice"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;b&gt;Privacy:&lt;/b&gt; le foto e i nomi degli operatori vengono conservati localmente nel browser.</p>
+<p class="p1"><span class="Apple-converted-space">    </span>La posizione viene usata per creare la sovrimpressione. Per ottenere l'indirizzo testuale</p>
+<p class="p1"><span class="Apple-converted-space">    </span>l'app può interrogare un servizio di geocoding pubblico.</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/section&gt;</p>
+<p class="p1">&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">const DB_NAME="FotoGeoDB", DB_VERSION=1, STORE="photos";</p>
+<p class="p1">let db, currentOperator="", currentOperatorId="", currentPhotoBlob=null, currentPhotoName="";</p>
+<p class="p1">let currentOperatorPhotos=[];</p>
+<p class="p2"><br></p>
+<p class="p1">function openDB(){</p>
+<p class="p1"><span class="Apple-converted-space"> </span>return new Promise((resolve,reject)=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const r=indexedDB.open(DB_NAME,DB_VERSION);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>r.onupgradeneeded=()=&gt;{if(!r.result.objectStoreNames.contains(STORE)){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const s=r.result.createObjectStore(STORE,{keyPath:"id",autoIncrement:true});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>s.createIndex("operator","operator",{unique:false});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>r.onsuccess=()=&gt;{db=r.result;resolve(db)}; r.onerror=()=&gt;reject(r.error);</p>
+<p class="p1"><span class="Apple-converted-space"> </span>});</p>
+<p class="p1">}</p>
+<p class="p1">function tx(mode="readonly"){return db.transaction(STORE,mode).objectStore(STORE)}</p>
+<p class="p1">function allPhotos(){return new Promise((res,rej)=&gt;{let r=tx().getAll();r.onsuccess=()=&gt;res(r.result);r.onerror=()=&gt;rej(r.error)})}</p>
+<p class="p1">function addPhoto(o){return new Promise((res,rej)=&gt;{let r=tx("readwrite").add(o);r.onsuccess=()=&gt;res(r.result);r.onerror=()=&gt;rej(r.error)})}</p>
+<p class="p1">function deletePhoto(id){return new Promise((res,rej)=&gt;{let r=tx("readwrite").delete(id);r.onsuccess=()=&gt;res();r.onerror=()=&gt;rej(r.error)})}</p>
+<p class="p2"><br></p>
+<p class="p1">const $=id=&gt;document.getElementById(id);</p>
+<p class="p1">function esc(s){return String(s).replace(/[&amp;&lt;&gt;"']/g,m=&gt;({"&amp;":"&amp;amp;","&lt;":"&amp;lt;","&gt;":"&amp;gt;",'"':"&amp;quot;","'":"&amp;#039;"}[m]))}</p>
+<p class="p1">function operatorKey(name){return name.trim().toLowerCase().replace(/\s+/g," ")}</p>
+<p class="p1">function getOperators(photos){</p>
+<p class="p1"><span class="Apple-converted-space"> </span>const map=new Map();</p>
+<p class="p1"><span class="Apple-converted-space"> </span>photos.forEach(p=&gt;{const k=operatorKey(p.operator); if(!map.has(k))map.set(k,{name:p.operator,count:0});map.get(k).count++});</p>
+<p class="p1"><span class="Apple-converted-space"> </span>const saved=localStorage.getItem("fotogeo_operators");</p>
+<p class="p1"><span class="Apple-converted-space"> </span>if(saved) try{JSON.parse(saved).forEach(o=&gt;{if(!map.has(operatorKey(o.name)))map.set(operatorKey(o.name),{name:o.name,count:0})})}catch(e){}</p>
+<p class="p1"><span class="Apple-converted-space"> </span>return [...map.values()].sort((a,b)=&gt;a.name.localeCompare(b.name));</p>
+<p class="p1">}</p>
+<p class="p1">function saveOperators(list){localStorage.setItem("fotogeo_operators",JSON.stringify(list))}</p>
+<p class="p1">async function renderOperators(){</p>
+<p class="p1"><span class="Apple-converted-space"> </span>const photos=await allPhotos(), ops=getOperators(photos);</p>
+<p class="p1"><span class="Apple-converted-space"> </span>if(!ops.length){$("operatorsList").innerHTML="Nessun operatore ancora registrato.";return}</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$("operatorsList").innerHTML=ops.map(o=&gt;`</p>
+<p class="p1"><span class="Apple-converted-space"> </span>&lt;div class="operator"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div&gt;&lt;div class="operator-name"&gt;<span class="s1">👤</span> ${esc(o.name)}&lt;/div&gt;&lt;div class="count"&gt;${o.count} foto&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;button class="secondary" onclick="openGallery(${JSON.stringify(o.name)})"&gt;<span class="s1">📁</span> Apri&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space"> </span>&lt;/div&gt;`).join("");</p>
+<p class="p1">}</p>
+<p class="p1">window.openGallery=async function(name){</p>
+<p class="p1"><span class="Apple-converted-space"> </span>currentOperatorId=operatorKey(name); currentOperator=name;</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$("galleryTitle").textContent=`<span class="s1">📁</span> ${name}`;</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$("gallerySection").classList.remove("hidden"); $("resultSection").classList.add("hidden");</p>
+<p class="p1"><span class="Apple-converted-space"> </span>const photos=(await allPhotos()).filter(p=&gt;operatorKey(p.operator)===currentOperatorId).sort((a,b)=&gt;b.created-a.created);</p>
+<p class="p1"><span class="Apple-converted-space"> </span>currentOperatorPhotos=photos;</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$("gallery").innerHTML=photos.length?photos.map(p=&gt;`</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="photo-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">   </span>&lt;img src="${URL.createObjectURL(p.blob)}" alt=""&gt;</p>
+<p class="p1"><span class="Apple-converted-space">   </span>&lt;div&gt;&lt;b&gt;${esc(new Date(p.created).toLocaleString("it-IT"))}&lt;/b&gt;&lt;br&gt;${esc(p.lat.toFixed(6))}, ${esc(p.lon.toFixed(6))}</p>
+<p class="p1"><span class="Apple-converted-space">   </span>&lt;br&gt;&lt;button class="danger" style="margin-top:7px;padding:7px 9px;font-size:12px" onclick="removePhoto(${p.id})"&gt;Elimina&lt;/button&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;`).join(""):"&lt;p class='muted'&gt;Nessuna foto per questo operatore.&lt;/p&gt;";</p>
+<p class="p1">}</p>
+<p class="p1">window.removePhoto=async function(id){if(confirm("Eliminare questa fotografia?")){await deletePhoto(id);openGallery(currentOperator);renderOperators()}}</p>
+<p class="p2"><br></p>
+<p class="p1">$("backOperators").onclick=()=&gt;{$("gallerySection").classList.add("hidden");renderOperators()};</p>
+<p class="p1">$("saveOperator").onclick=()=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space"> </span>const n=$("operator").value.trim(); if(!n){alert("Inserisci il nome dell'operatore.");return}</p>
+<p class="p1"><span class="Apple-converted-space"> </span>currentOperator=n; localStorage.setItem("fotogeo_current_operator",n);</p>
+<p class="p1"><span class="Apple-converted-space"> </span>const photosCache=[]; const ops=getOperators(photosCache);</p>
+<p class="p1"><span class="Apple-converted-space"> </span>if(!ops.some(o=&gt;operatorKey(o.name)===operatorKey(n))) {ops.push({name:n,count:0});saveOperators(ops)}</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$("gpsStatus").textContent=`<span class="s1">👤</span> Operatore attivo: ${n}`;renderOperators();</p>
+<p class="p1">};</p>
+<p class="p2"><br></p>
+<p class="p1">$("takePhoto").onclick=()=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space"> </span>const n=$("operator").value.trim()||localStorage.getItem("fotogeo_current_operator")||"";</p>
+<p class="p1"><span class="Apple-converted-space"> </span>if(!n){alert("Inserisci prima il Nome operatore.");$("operator").focus();return}</p>
+<p class="p1"><span class="Apple-converted-space"> </span>currentOperator=n; localStorage.setItem("fotogeo_current_operator",n);</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$("gpsStatus").textContent="<span class="s1">📍</span> Avvio fotocamera e acquisizione GPS in background...";</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space"> </span>if(!navigator.geolocation){alert("Questo browser non supporta la geolocalizzazione.");return}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space"> </span>window._gpsPromise = new Promise((resolve, reject) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">   </span>navigator.geolocation.getCurrentPosition(</p>
+<p class="p1"><span class="Apple-converted-space">     </span>pos =&gt; resolve(pos.coords),</p>
+<p class="p1"><span class="Apple-converted-space">     </span>err =&gt; reject(err),</p>
+<p class="p1"><span class="Apple-converted-space">     </span>{enableHighAccuracy:true,timeout:15000,maximumAge:0}</p>
+<p class="p1"><span class="Apple-converted-space">   </span>);</p>
+<p class="p1"><span class="Apple-converted-space"> </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space"> </span>$("fileInput").click();</p>
+<p class="p1">};</p>
+<p class="p2"><br></p>
+<p class="p1">$("newPhoto").onclick=()=&gt;$("takePhoto").click();</p>
+<p class="p2"><br></p>
+<p class="p1">$("fileInput").onchange=async e=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const file = e.target.files[0];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!file) return;</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("gpsStatus").textContent="<span class="s1">📍</span> Attesa della posizione GPS...";</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const coords = await window._gpsPromise;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>window._gps = coords;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>await processImage(file, coords);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} catch (err) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>alert("Non è stato possibile ottenere la posizione GPS. Consenti la localizzazione, ricarica la pagina e riprova.");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("gpsStatus").textContent="<span class="s1">⚠️</span> GPS non disponibile.";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">};</p>
+<p class="p2"><br></p>
+<p class="p1">function pad(n){return String(n).padStart(2,"0")}</p>
+<p class="p1">async function reverseGeocode(lat,lon){</p>
+<p class="p1"><span class="Apple-converted-space"> </span>try{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const r=await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&amp;lat=${encodeURIComponent(lat)}&amp;lon=${encodeURIComponent(lon)}&amp;zoom=18&amp;addressdetails=1`,{headers:{"Accept-Language":"it"}});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!r.ok)return "";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const j=await r.json(); return j.display_name||"";</p>
+<p class="p1"><span class="Apple-converted-space"> </span>}catch(e){return ""}</p>
+<p class="p1">}</p>
+<p class="p1">async function processImage(file,coords){</p>
+<p class="p1"><span class="Apple-converted-space"> </span>const url=URL.createObjectURL(file), img=new Image();</p>
+<p class="p1"><span class="Apple-converted-space"> </span>await new Promise((res,rej)=&gt;{img.onload=res;img.onerror=rej;img.src=url});</p>
+<p class="p1"><span class="Apple-converted-space"> </span>const c=document.createElement("canvas"), ctx=c.getContext("2d");</p>
+<p class="p1"><span class="Apple-converted-space"> </span>c.width=img.naturalWidth;c.height=img.naturalHeight;ctx.drawImage(img,0,0);</p>
+<p class="p1"><span class="Apple-converted-space"> </span>const now=new Date(), date=`${pad(now.getDate())}/${pad(now.getMonth()+1)}/${now.getFullYear()}`, time=`${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$("gpsStatus").textContent="<span class="s1">📍</span> Recupero località...";</p>
+<p class="p1"><span class="Apple-converted-space"> </span>const address=await reverseGeocode(coords.latitude,coords.longitude);</p>
+<p class="p1"><span class="Apple-converted-space"> </span>const lines=[</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`OPERATORE: ${currentOperator}`,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`${date} • ${time}`,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`COORDINATE: ${coords.latitude.toFixed(6)}, ${coords.longitude.toFixed(6)}`,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`ACCURATEZZA GPS: ±${Math.round(coords.accuracy||0)} m`</p>
+<p class="p1"><span class="Apple-converted-space"> </span>];</p>
+<p class="p1"><span class="Apple-converted-space"> </span>if(address)lines.unshift(`<span class="s1">📍</span> ${address}`);</p>
+<p class="p1"><span class="Apple-converted-space"> </span>const scale=Math.max(1,img.naturalWidth/1200), fs=Math.max(22,Math.round(24*scale)), padX=Math.round(22*scale), lineH=Math.round(fs*1.45), boxH=padX+lineH*lines.length+padX;</p>
+<p class="p1"><span class="Apple-converted-space"> </span>ctx.fillStyle="rgba(0,0,0,.70)";ctx.fillRect(0,c.height-boxH,c.width,boxH);</p>
+<p class="p1"><span class="Apple-converted-space"> </span>ctx.font=`600 ${fs}px -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif`;ctx.fillStyle="#fff";ctx.textBaseline="top";</p>
+<p class="p1"><span class="Apple-converted-space"> </span>lines.forEach((line,i)=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">   </span>let max=c.width-padX*2, text=line;</p>
+<p class="p1"><span class="Apple-converted-space">   </span>while(ctx.measureText(text).width&gt;max&amp;&amp;text.length&gt;10)text=text.slice(0,-1);</p>
+<p class="p1"><span class="Apple-converted-space">   </span>ctx.fillText(text,padX,c.height-boxH+padX+i*lineH);</p>
+<p class="p1"><span class="Apple-converted-space"> </span>});</p>
+<p class="p1"><span class="Apple-converted-space"> </span>const blob=await new Promise(r=&gt;c.toBlob(r,"image/jpeg",.92));</p>
+<p class="p1"><span class="Apple-converted-space"> </span>const name=`${date.replaceAll("/","-")}_${time.replaceAll(":","-")}.jpg`;</p>
+<p class="p1"><span class="Apple-converted-space"> </span>const photo={operator:currentOperator,created:Date.now(),lat:coords.latitude,lon:coords.longitude,accuracy:coords.accuracy||0,address,blob,name};</p>
+<p class="p1"><span class="Apple-converted-space"> </span>const id=await addPhoto(photo);photo.id=id;currentPhotoBlob=blob;currentPhotoName=name;</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$("preview").src=URL.createObjectURL(blob);$("downloadPhoto").href=URL.createObjectURL(blob);$("downloadPhoto").download=name;</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$("photoInfo").innerHTML=`&lt;b&gt;Operatore:&lt;/b&gt; ${esc(currentOperator)}&lt;br&gt;&lt;b&gt;Posizione:&lt;/b&gt; ${coords.latitude.toFixed(6)}, ${coords.longitude.toFixed(6)}&lt;br&gt;&lt;b&gt;Accuratezza:&lt;/b&gt; ±${Math.round(coords.accuracy||0)} m${address?`&lt;br&gt;&lt;b&gt;Località:&lt;/b&gt; ${esc(address)}`:""}`;</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$("resultSection").classList.remove("hidden");$("gallerySection").classList.add("hidden");$("gpsStatus").textContent="<span class="s1">✅</span> Foto geolocalizzata creata.";</p>
+<p class="p1"><span class="Apple-converted-space"> </span>renderOperators();</p>
+<p class="p1">}</p>
+<p class="p1">$("sharePhoto").onclick=async()=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space"> </span>if(!currentPhotoBlob)return;</p>
+<p class="p1"><span class="Apple-converted-space"> </span>const file=new File([currentPhotoBlob],currentPhotoName,{type:"image/jpeg"});</p>
+<p class="p1"><span class="Apple-converted-space"> </span>if(navigator.share&amp;&amp;navigator.canShare&amp;&amp;navigator.canShare({files:[file]})){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>try{await navigator.share({title:"Foto Geo",text:`Foto geolocalizzata - ${currentOperator}`,files:[file]})}catch(e){}</p>
+<p class="p1"><span class="Apple-converted-space"> </span>}else{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const a=document.createElement("a");a.href=URL.createObjectURL(currentPhotoBlob);a.download=currentPhotoName;a.click();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>alert("Il browser non supporta la condivisione diretta. La foto è stata scaricata; puoi allegarla a WhatsApp.");</p>
+<p class="p1"><span class="Apple-converted-space"> </span>}</p>
+<p class="p1">};</p>
+<p class="p1">$("exportOperator").onclick=async()=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space"> </span>if(!currentOperatorPhotos.length){alert("Nessuna foto da esportare.");return}</p>
+<p class="p1"><span class="Apple-converted-space"> </span>alert("Per mantenere l'app completamente gratuita e senza server, l'esportazione crea un download per ogni foto. Potrai poi condividerle o archiviarle.");</p>
+<p class="p1"><span class="Apple-converted-space"> </span>for(const p of currentOperatorPhotos){const a=document.createElement("a");a.href=URL.createObjectURL(p.blob);a.download=p.name;a.click();await new Promise(r=&gt;setTimeout(r,250))}</p>
+<p class="p1">};</p>
+<p class="p1">(async()=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space"> </span>await openDB();</p>
+<p class="p1"><span class="Apple-converted-space"> </span>const saved=localStorage.getItem("fotogeo_current_operator");if(saved){$("operator").value=saved;currentOperator=saved}</p>
+<p class="p1"><span class="Apple-converted-space"> </span>renderOperators();</p>
+<p class="p1">})();</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
